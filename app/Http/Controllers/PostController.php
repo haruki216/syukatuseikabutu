@@ -30,8 +30,8 @@ class PostController extends Controller
       
 
     $image = $request->file('image');
-    $path = $image->store('public');
-    $post->image = $path;
+    $path = $image->store('public/images');
+     $post->image = basename($path);
     $post->user_id = Auth::id();
     $post->save();
     return redirect('/post/posts/' . $post->id);
