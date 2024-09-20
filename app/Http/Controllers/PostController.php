@@ -27,13 +27,9 @@ class PostController extends Controller
 {
    
         $post->content = $request->input('content');
+     $post->image = base64_encode(file_get_contents($request->image));
     
-    
-    $image = $request->file('image');
-    $binaryData = file_get_contents($image->getRealPath());
-
-  
-    $post->image = $binaryData;
+   
     $post->user_id = Auth::id();
     $post->save();
 

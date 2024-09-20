@@ -106,7 +106,7 @@
     <div class="posts">
         @foreach ($posts as $post) 
             <div class="post">
-                <img src="data:image/jpeg;base64,{{ base64_encode($post->image) }}" class="example1">
+                <img src="data:image/jpeg;base64,{{$post->image }}" class="example1">
 
                 <h2 class="title">{{ $post->title }}</h2>
                 <p class="body">
