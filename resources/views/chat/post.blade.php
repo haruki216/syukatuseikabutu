@@ -106,8 +106,8 @@
     <div class="posts">
         @foreach ($posts as $post) 
             <div class="post">
-                <img src="{{ Storage::url($post->image) }}" alt="Post Image"
- class="example1">
+                <img src="data:image/jpeg;base64,{{ base64_encode($post->image) }}" class="example1">
+
                 <h2 class="title">{{ $post->title }}</h2>
                 <p class="body">
                     <a href="/post/posts/{{$post->id}}">{{ $post->content }}</a>

@@ -27,14 +27,18 @@ class PostController extends Controller
 {
    
         $post->content = $request->input('content');
-      
-
+    
+    
     $image = $request->file('image');
-    $path = $image->store('public/images');
-    $post->image = $path;
+    $binaryData = file_get_contents($image->getRealPath());
+
+  
+    $post->image = $binaryData;
     $post->user_id = Auth::id();
     $post->save();
+
     return redirect('/post/posts/' . $post->id);
+
 }
 
     public function delete(Post $post){
