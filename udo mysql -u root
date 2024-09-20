@@ -1,0 +1,20 @@
+● mariadb.service - MariaDB 10.5 database server
+     Loaded: loaded (/usr/lib/systemd/system/mariadb.service; enabled; preset: disabled)
+     Active: active (running) since Fri 2024-09-20 09:10:49 JST; 19s ago
+       Docs: man:mariadbd(8)
+             https://mariadb.com/kb/en/library/systemd/
+    Process: 1998 ExecStartPre=/usr/libexec/mariadb-check-socket (code=exited, status=0/SUCCESS)
+    Process: 2027 ExecStartPre=/usr/libexec/mariadb-prepare-db-dir mariadb.service (code=exited, status=0/SUCCESS)
+    Process: 2076 ExecStartPost=/usr/libexec/mariadb-check-upgrade (code=exited, status=0/SUCCESS)
+   Main PID: 2062 (mariadbd)
+     Status: "Taking your SQL requests now..."
+      Tasks: 13 (limit: 1112)
+     Memory: 84.6M
+        CPU: 157ms
+     CGroup: /system.slice/mariadb.service
+             └─2062 /usr/libexec/mariadbd --basedir=/usr
+
+Sep 20 09:10:49 ip-172-31-73-175.ec2.internal systemd[1]: Starting mariadb.service - MariaDB 10.5 database server...
+Sep 20 09:10:49 ip-172-31-73-175.ec2.internal mariadb-prepare-db-dir[2027]: Database MariaDB is probably initialized in /var/lib/mysql already, nothing is done.
+Sep 20 09:10:49 ip-172-31-73-175.ec2.internal mariadb-prepare-db-dir[2027]: If this is not the case, make sure the /var/lib/mysql is empty before running mariadb-prepare-db-dir.
+Sep 20 09:10:49 ip-172-31-73-175.ec2.internal systemd[1]: Started mariadb.service - MariaDB 10.5 database server.
