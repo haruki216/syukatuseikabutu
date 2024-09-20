@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -42,4 +41,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    
+        public function posts()   
+{
+    return $this->hasMany(Post::class);  
+}
+ public function records()   
+{
+    return $this->hasMany(Record::class);  
+}
+
+  public function calculations()   
+{
+    return $this->hasMany(Calculation::class);  
+}
+
 }
