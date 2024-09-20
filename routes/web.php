@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/memo/{date}', [recordController::class, 'memo'])->name('records.memo');
     Route::get('/calories', [CalculationController::class, 'index'])->name('records.calories');
     Route::post('/calories', [CalculationController::class, 'store'])->name('records.store');
+    Route::get('/timer',function(){return view('records.timer');});
     Route::get('/post',[PostController::class, 'index']);
     Route::get('/post/posts/search',[PostController::class,'search']);
     Route::get('/post/posts/create',[PostController::class,'create']);
