@@ -6,7 +6,7 @@
         <title>post</title>
     </head>
     <body>
-         <form action="/posts"  enctype="multipart/form-data" method="POST">
+         <form action="/posts"  enctype="multipart/form-data" method="POST" >
             @csrf
        <h1 class="title">
           <h2>title</h2>

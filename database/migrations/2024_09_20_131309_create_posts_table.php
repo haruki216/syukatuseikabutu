@@ -16,7 +16,7 @@ return new class extends Migration
            $table->id();
             $table->foreignId('user_id')->constrained();
             $table->text('content');
-            $table->binary('image');
+            $table->string('image');
             $table->timestamps();
             $table->softDeletes();
         });

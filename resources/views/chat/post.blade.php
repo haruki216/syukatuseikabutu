@@ -5,6 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>投稿一覧</title>
     <style>
+    
+        ul.gnav-navi-1{
+background:skyblue;
+/*padding: 0;*/
+text-align: center;
+/*   position: fixed;*/
+/*   width: 100%;*/
+/*   top:0;*/
+   z-index:500;
+    height:100px;
+    
+}
+ul.gnav-navi-1 li{
+display: inline-block;
+
+}
+
+
+ul.gnav-navi-1 li a{
+display: block;
+padding: 1em;
+color: black;
+text-decoration: none;
+}
+ul.gnav-navi-1 a::first-line{
+font-size: 20px;
+font-weight: bold;
+}
         /* 投稿一覧全体のコンテナ */
         .posts {
             display: grid;
@@ -106,7 +134,7 @@
     <div class="posts">
         @foreach ($posts as $post) 
             <div class="post">
-                <img src="data:image/jpeg;base64,{{$post->image }}" class="example1">
+                <img src="{{ $post->image }}" alt="投稿画像" class="example1">
 
                 <h2 class="title">{{ $post->title }}</h2>
                 <p class="body">
