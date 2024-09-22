@@ -134,7 +134,7 @@ font-weight: bold;
     <div class="posts">
         @foreach ($posts as $post) 
             <div class="post">
-                <img src="{{ $post->image }}" alt="投稿画像" class="example1">
+                 <img src="{{ Storage::url($post->image)}}" class="example1">
 
                 <h2 class="title">{{ $post->title }}</h2>
                 <p class="body">

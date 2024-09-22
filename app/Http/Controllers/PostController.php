@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\UploadedFile;
 
 class PostController extends Controller
 {
@@ -27,14 +25,10 @@ class PostController extends Controller
     
     public function store(Request $request, Post $post)
 {
-   
-        $post->content = $request->input('content');
-      
-
-      $path = Storage::disk('s3')->put('images', $request->file('image'));
-    $post->image = Storage::disk('s3')->url($path);
-   
-    // $post->image = $path;
+       $post->content = $request->input('content');
+    $image = $request->file('image');
+    $path = $image->store('public');
+    $post->image = $path;
     $post->user_id = Auth::id();
     $post->save();
     return redirect('/post/posts/' . $post->id);
