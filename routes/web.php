@@ -7,6 +7,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RecordController;
 use App\Http\Controllers\CalculationController;
 
+use App\Http\Controllers\GeminiController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +40,10 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/post/posts/{post}',[PostController::class,'show']);
     Route::post('/posts', [PostController::class, 'store']);
     Route::delete('/post/posts/{post}',[PostController::class,'delete']);
+    
+ Route::get('/gemini', [GeminiController::class, 'index'])->name('index');
+Route::post('/', [GeminiController::class, 'entry'])->name('entry');
+    
     });
 
 Route::middleware('auth')->group(function () {
