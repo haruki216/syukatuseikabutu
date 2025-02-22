@@ -12,16 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('records', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id');
+    $table->id();
+    $table->unsignedBigInteger('user_id');
     $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->text('memo');
-            $table->integer('weight');
-            $table->date('date')->unique();
-            $table->string('category')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
-        });
+    $table->text('memo')->nullable();
+    $table->integer('weight');
+    $table->string('category'); // カテゴリーを必須に変更
+    $table->integer('count'); // 運動回数を保存
+    $table->date('date');
+    $table->timestamps();
+    $table->softDeletes();
+});
+
     }
 
     /**

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Gemini\Laravel\Facades\Gemini;
 use Illuminate\Support\Str;
+use Gemini\GeminiProVision;
+use Gemini\Blob;
+use Gemini\MimeType;
 
 class GeminiController extends Controller
 {
@@ -24,5 +27,8 @@ class GeminiController extends Controller
             'content' => Str::markdown(Gemini::geminiPro()->generateContent($toGeminiCommand)->text()),
         ];
         return view('AI.index', compact('result'));
+        
     }
+    
+   
 }

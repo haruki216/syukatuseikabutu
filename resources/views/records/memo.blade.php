@@ -1,4 +1,3 @@
-
 @extends('layouts.app1')
 
 @section('content')
@@ -7,12 +6,19 @@
         @csrf
 
         <div class="form-group">
-            <textarea class="form-control" name="memo" rows="1"　placeholder="腹筋">{{ old('memo', $memo->memo) }}</textarea>
-        </div>   
-        
+            <label>カテゴリー</label>
+            <select class="form-control" name="category">
+                <option value="腹筋" {{ old('category', $memo->category) == '腹筋' ? 'selected' : '' }}>腹筋</option>
+                <option value="ランニング" {{ old('category', $memo->category) == 'ランニング' ? 'selected' : '' }}>ランニング</option>
+                <option value="スクワット" {{ old('category', $memo->category) == 'スクワット' ? 'selected' : '' }}>スクワット</option>
+            </select>
+        </div>
+
         <div class="form-group">
-            <textarea class="form-control" name="category" rows="5" placeholder="腹筋×１００回">{{ old('category', $memo->category) }}</textarea>
-        </div>    
+            <label>回数 / 距離</label>
+            <input type="number" class="form-control" name="count" value="{{ old('count', $memo->count) }}" required>
+        </div>
+
         <button type="submit" class="btn btn-primary">保存</button>
     </form>
 @endsection
