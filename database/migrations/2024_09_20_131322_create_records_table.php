@@ -18,7 +18,7 @@ return new class extends Migration
     $table->text('memo')->nullable();
     $table->integer('weight');
     $table->string('category'); // カテゴリーを必須に変更
-    $table->integer('count'); // 運動回数を保存
+    $table->integer('count_value'); // 運動回数を保存
     $table->date('date');
     $table->timestamps();
     $table->softDeletes();
