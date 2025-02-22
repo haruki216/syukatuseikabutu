@@ -20,7 +20,8 @@ class recordseeder extends Seeder
             'user_id'=>'1',
             'weight'=>'60',
             'date'=>Carbon::create(2024, 5, 30),
-            'category'=>'背筋',
+            'category'=>'ランニング',
+            'count'=>'10',
             'created_at'=>new DateTime(),
             'updated_at'=>new DateTime(),
             ]);

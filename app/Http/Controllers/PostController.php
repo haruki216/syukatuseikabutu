@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
-    //
+    
     public function index(Post $post){
         
         $posts = $post->getByLimit(10);
@@ -25,12 +25,12 @@ class PostController extends Controller
     
     public function store(Request $request, Post $post)
 {
-       $post->content = $request->input('content');
-    $image = $request->file('image');
-    $path = $image->store('public');
-    $post->image = $path;
-    $post->user_id = Auth::id();
-    $post->save();
+        $post->content = $request->input('content');
+        $image = $request->file('image');
+        $path = $image->store('public');
+        $post->image = $path;
+        $post->user_id = Auth::id();
+        $post->save();
     return redirect('/post/posts/' . $post->id);
 }
      
@@ -54,11 +54,11 @@ class PostController extends Controller
             }
         else {
             $posts = Post::get();
-        }
+            }
 
         return view('chat.post', [
             'posts' => $posts,
             'keyword' => $request->keyword
-        ]);
+            ]);
     }
 }

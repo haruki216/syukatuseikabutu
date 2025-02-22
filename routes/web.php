@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/', [RecordController::class, 'index'])->name('records.index');
     Route::post('/memo/{date}', [RecordController::class, 'memo'])->name('records.memo');
     Route::get('/memo/{date}', [recordController::class, 'memo'])->name('records.memo');
+    Route::get('/records/graph-data', [RecordController::class, 'getGraphData']);
     Route::get('/calories', [CalculationController::class, 'index'])->name('records.calories');
     Route::post('/calories', [CalculationController::class, 'store'])->name('records.store');
     Route::get('/timer',function(){return view('records.timer');});
@@ -41,9 +42,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/posts', [PostController::class, 'store']);
     Route::delete('/post/posts/{post}',[PostController::class,'delete']);
     
- Route::get('/gemini', [GeminiController::class, 'index'])->name('index');
-Route::post('/', [GeminiController::class, 'entry'])->name('entry');
-    
+    Route::get('/gemini', [GeminiController::class, 'index'])->name('index');
+    Route::post('/', [GeminiController::class, 'entry'])->name('entry');
+    Route::post('/push', [GeminiController::class, 'push'])->name('push');
     });
 
 Route::middleware('auth')->group(function () {
