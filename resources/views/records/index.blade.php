@@ -10,7 +10,7 @@
         <li><a href="/calender">記録</a></li>
         <li><a href="/timer">タイマー</a></li>
         <li><a href="/calories">体重記録</a></li>
-        <li><a href="/post">チャット</a></li>
+      
          <li><a href="/gemini">AI</a></li>
         </ul>
     </nav>
