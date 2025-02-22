@@ -73,7 +73,7 @@ class RecordController extends Controller
 
         if ($request->isMethod('post')) {
             $memo->category = $request->input('category');
-            $memo->count = $request->input('count');
+            $memo->count_value = $request->input('count_value');
             $memo->user_id = $user->id;
             $memo->save();
 
@@ -93,7 +93,7 @@ class RecordController extends Controller
 
         $records = Record::where('user_id', $user->id)
             ->where('date', 'like', "{$month}%")
-            ->selectRaw('category, SUM(count) as total_count')
+            ->selectRaw('category, SUM(count_value) as total_count')
             ->groupBy('category')
             ->get();
 

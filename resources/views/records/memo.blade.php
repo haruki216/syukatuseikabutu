@@ -16,7 +16,7 @@
 
         <div class="form-group">
             <label>回数 / 距離</label>
-            <input type="number" class="form-control" name="count" value="{{ old('count', $memo->count) }}" required>
+            <input type="number" class="form-control" name="count_value" value="{{ old('count', $memo->count) }}" required>
         </div>
 
         <button type="submit" class="btn btn-primary">保存</button>
